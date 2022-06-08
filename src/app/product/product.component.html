@@ -1,28 +1,33 @@
-<div class="main">
-
+<div class="main" *ngIf="products">
+    <div class="main__box-left">
+       
+        <!-- background: url("./assets/images/img1.jpg") no-repeat center center/cover; -->
+        <img [src]="products[0].images[0].src">
+    </div>
     <div class="main__box-right">
         <div class="main__box-right--tittle_main">
             <div class="tittle-box-top">
-                <h2>PETRA</h2>
+                <div [innerHTML]="products[0].name">
+                </div>
             </div>
             <hr>
-
-            <div class="tittle-box-bottom">
+            <!-- <div class="tittle-box-bottom">
+                <div [innerHTML]="description">
+                </div>
                 <div class="tittle-box-bottom--sizes">
-                    <span>30x30</span><br>
-                    <span class="tittle-">Matt</span>
+                    
                 </div>
                 <div class="tittle-box-bottom--logos">
                     <a href="#"><img src="../../assets/images/logo1.png"></a>
                     <a href="#"><img src="../../assets/images/logo2.png"></a>
                 </div>
-            </div><!-- THIS IS THE TITTLE BOX BOTTON-->
+            </div> -->
 
             <div class="products-container">
-                <div class="products-container--box-img">
+                <div class="products-container--box-img" *ngFor="let image of images">
                     <div class="products-container--box-img__image-container">
                         <div class="images-boxes-a">
-                            <img src="../../assets/images/prd-a-1.jpg">
+                            <img [src]="image.src">
                         </div>
                         <div class="images-boxes-b">
                             <span><b>SM8C3D</b></span>
@@ -30,35 +35,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="products-container--box-img">
-                    <div class="products-container--box-img__image-container">
-                        <div class="images-boxes-a">
-                            <img src="../../assets/images/prd-a-2.jpg">
-                        </div>
-                        <div class="images-boxes-b">
-                            <span><b>SM8C3D</b></span>
-                            <span style="font-size: 0.8rem">CASCINA Marifil</span>
-                        </div>
-                    </div>
+            </div>
+             <div class="tittle-box-bottom product-description">
+                <div [innerHTML]="products[0].description">
                 </div>
-
-                <div class="products-container--box-img">
-                    <div class="products-container--box-img__image-container">
-                        <div class="images-boxes-a">
-                            <img src="../../assets/images/prd-a-1.jpg">
-                        </div>
-                        <div class="images-boxes-b">
-                            <span><b>SM8C3D</b></span>
-                            <span style="font-size: 0.8rem">CASCINA Marifil</span>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- THIS IS THE PRODUCTS CONTAINER-->
-
+            </div>
         </div>
-    </div>
-    <div class="main__box-left">
-        
     </div>
 </div>

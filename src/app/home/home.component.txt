@@ -1,0 +1,63 @@
+<div class="main">
+    <div class="main__box-left">
+        
+    </div>
+    <div class="main__box-right">
+        <div class="main__box-right--tittle_main">
+            <div class="tittle-box-top">
+                <h2>CASCINA</h2>
+            </div>
+            <hr>
+
+            <div class="tittle-box-bottom">
+                <div class="tittle-box-bottom--sizes">
+                    <span>30x30</span><br>
+                    <span class="tittle-">Matt</span>
+                </div>
+                <div class="tittle-box-bottom--logos">
+                    <a href="#"><img src="../../assets/images/logo1.png"></a>
+                    <a href="#"><img src="../../assets/images/logo2.png"></a>
+                </div>
+            </div><!-- THIS IS THE TITTLE BOX BOTTON-->
+
+            <div class="products-container">
+                <div class="products-container--box-img">
+                    <div class="products-container--box-img__image-container">
+                        <div class="images-boxes-a">
+                            <img src="../../assets/images/prd1.jpg">
+                        </div>
+                        <div class="images-boxes-b">
+                            <span><b>SM8C3D</b></span>
+                            <span style="font-size: 0.8rem">CASCINA Marifil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-container--box-img">
+                    <div class="products-container--box-img__image-container">
+                        <div class="images-boxes-a">
+                            <img src="../../assets/images/prd2.jpg">
+                        </div>
+                        <div class="images-boxes-b">
+                            <span><b>SM8C3D</b></span>
+                            <span style="font-size: 0.8rem">CASCINA Marifil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="products-container--box-img">
+                    <div class="products-container--box-img__image-container">
+                        <div class="images-boxes-a">
+                            <img src="../../assets/images/prd3.jpg">
+                        </div>
+                        <div class="images-boxes-b">
+                            <span><b>SM8C3D</b></span>
+                            <span style="font-size: 0.8rem">CASCINA Marifil</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- THIS IS THE PRODUCTS CONTAINER-->
+
+        </div>
+    </div>
+</div>

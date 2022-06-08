@@ -1,0 +1,86 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+import { WooQryService } from '../../providers/woo-qry.service';
+import { WooCmdService } from '../../providers/woo-cmd.service';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ProductService {
+
+  constructor(private http: HttpClient, private wooQRY: WooQryService, private wooCMD: WooCmdService) { }
+  // http://shop.cebuhome.co/
+  baseUrl: string = "http://shop.cebuhome.co/wp-json/wc/v3/products/";
+  createUrl: string = "http://shop.cebuhome.co/wp-json/wc/v3/products";
+
+  // baseUrl: string = "http://livingnstyle.com.ph/wp-json/wc/v3/products/";
+  // createUrl: string = "http://livingnstyle.com.ph/wp-json/wc/v3/products";
+
+  // baseUrl: string = "http://kabilya-001-site2.itempurl.com/wp-json/wc/v3/products/";
+  // createUrl: string = "http://kabilya-001-site2.itempurl.com/wp-json/wc/v3/products";
+
+
+  // GET ALL PRODUCTS
+  getVariations(id: string) {
+    let params = {};
+    let producturl:string = this.wooQRY.authenticateApi('GET',this.baseUrl + id + "/variations/", params);
+    return this.http.get<any[]>(producturl);
+  }
+  updateVariation(id: string, id2: string, body){
+    let params = {};
+    let producturl:string = this.wooCMD.authenticateApi('PUT',this.baseUrl + id + "/variations/" + id2, params);
+    return this.http.put(producturl, body);
+  }
+  getProducts(params) {
+    let producturl:string = this.wooQRY.authenticateApi('GET',this.baseUrl,params);
+    return this.http.get(producturl);
+  }
+  // GET PRODUCT by Article 
+  getProductbySku(article: number) : Observable<any> {
+    let body = {
+      sku: article
+    }
+    let producturl:string = this.wooQRY.authenticateApi('GET',this.baseUrl, body);
+    return this.http.get(producturl);
+  }
+  // GET PRODUCT by Id
+  getProductbyId(id: string) {
+    let body = {
+    }
+    let producturl:string = this.wooQRY.authenticateApi('GET',this.baseUrl+id, body);
+    return this.http.get(producturl);
+  }
+  // CREATE PRODUCT
+  createProduct(body) {
+    let params = {}
+    let producturl:string = this.wooCMD.authenticateApi('POST',this.createUrl, params);
+    return this.http.post(producturl, body)
+  }
+  // CREATE BATCH
+  createBatch(body) {
+    let params = {}
+    let producturl:string = this.wooCMD.authenticateApi('POST',this.baseUrl + 'batch', params);
+    return this.http.post(producturl, body)
+  }
+
+  // EDIT PRODUCT
+  updateProduct(id: string, body){
+    let params = {};
+    let producturl:string = this.wooCMD.authenticateApi('PUT',this.baseUrl + id, params);
+    return this.http.put(producturl, body);
+  }
+    // UPDATE BATCH
+  updateBatch(body){
+    let params = {};
+    let producturl:string = this.wooCMD.authenticateApi('POST',this.baseUrl + 'batch', params);
+    return this.http.post(producturl, body);
+  }
+  createProductVariation(id: string, body) {
+    let params = {}
+    let producturl:string = this.wooCMD.authenticateApi('POST',this.createUrl+'/'+id+'/variations', params);
+    return this.http.post(producturl, body)
+  }
+}
